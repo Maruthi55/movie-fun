@@ -27,6 +27,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
+@Transactional
 public class MoviesBean {
 
     @PersistenceContext
@@ -36,7 +37,6 @@ public class MoviesBean {
         return entityManager.find(Movie.class, id);
     }
 
-    @Transactional
     public void addMovie(Movie movie) {
         entityManager.persist(movie);
     }
